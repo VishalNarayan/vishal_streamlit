@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 icon_url = "https://cdn3.emoji.gg/emojis/8073-brilliant.png"
 
@@ -22,4 +23,4 @@ Over time, I will populate this page with various items, including:
 text = replace_brilliant_with_icon(f"For now, here is a game I am particularly proud of. `15..Rxc3` was considered a brilliant :brilliant: move by the chess.com engine. See if you can understand why!")
 st.write(text, unsafe_allow_html=True)
 game_url = "https://www.chess.com/emboard?id=11828039"
-st.components.v1.iframe(game_url, height=600, width=800)
+components.iframe(game_url, height=600, width=800)
