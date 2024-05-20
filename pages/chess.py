@@ -9,7 +9,7 @@ st.markdown("""
     /* Adjust the iframe size for different screen widths */
     @media (max-width: 600px) {
         iframe {
-            width: 80% !important;
+            width: 110% !important;
             height: 600px !important;
         }
     }
