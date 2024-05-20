@@ -6,25 +6,23 @@ st.set_page_config(page_icon=icon_url)
 # Custom CSS for responsiveness
 st.markdown("""
     <style>
-    .iframe-container {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    }
-    .responsive-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    /* Specific adjustments for smaller screens */
+    /* Adjust the iframe size for different screen widths */
     @media (max-width: 600px) {
-        .iframe-container {
-            padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
+        iframe {
+            width: 100% !important;
+            height: 600px !important;
+        }
+    }
+    @media (min-width: 601px) and (max-width: 1200px) {
+        iframe {
+            width: 80% !important;
+            height: 600px !important;
+        }
+    }
+    @media (min-width: 1201px) {
+        iframe {
+            width: 800px !important;
+            height: 600px !important;
         }
     }
     </style>
@@ -47,12 +45,14 @@ Over time, I will populate this page with various items, including:
 - A sparsely documented account of my progress as I grow and develop my chess skills
 ''')
 
+
+
 text = replace_brilliant_with_icon(f"For now, here is a game I am particularly proud of. `15..Rxc3` was considered a brilliant :brilliant: move by the chess.com engine. See if you can understand why!")
 st.write(text, unsafe_allow_html=True)
 game_url = "https://www.chess.com/emboard?id=11828039"
 # Embed the chess game or board in a responsive container
 st.markdown(f"""
     <div class="iframe-container">
-        <iframe class="responsive-iframe" src="{game_url}" allowfullscreen></iframe>
+        <iframe class="responsive-iframe" src="{game_url}" allowfullscreen></iframe>      
     </div>
     """, unsafe_allow_html=True)
