@@ -50,4 +50,9 @@ Over time, I will populate this page with various items, including:
 text = replace_brilliant_with_icon(f"For now, here is a game I am particularly proud of. `15..Rxc3` was considered a brilliant :brilliant: move by the chess.com engine. See if you can understand why!")
 st.write(text, unsafe_allow_html=True)
 game_url = "https://www.chess.com/emboard?id=11828039"
-components.iframe(game_url, height=600, width=800)
+# Embed the chess game or board in a responsive container
+st.markdown(f"""
+    <div class="iframe-container">
+        <iframe class="responsive-iframe" src="{game_url}" allowfullscreen></iframe>
+    </div>
+    """, unsafe_allow_html=True)
