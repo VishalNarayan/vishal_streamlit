@@ -2,13 +2,38 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 icon_url = "https://cdn3.emoji.gg/emojis/8073-brilliant.png"
+st.set_page_config(page_icon=icon_url)
+# Custom CSS for responsiveness
+st.markdown("""
+    <style>
+    /* Adjust the iframe size for different screen widths */
+    @media (max-width: 600px) {
+        iframe {
+            width: 100% !important;
+            height: 400px !important;
+        }
+    }
+    @media (min-width: 601px) and (max-width: 1200px) {
+        iframe {
+            width: 80% !important;
+            height: 500px !important;
+        }
+    }
+    @media (min-width: 1201px) {
+        iframe {
+            width: 800px !important;
+            height: 600px !important;
+        }
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Function to replace :brilliant: with the HTML image tag
 def replace_brilliant_with_icon(text):
     icon_html = f'<img src="{icon_url}" width="20" style="vertical-align: middle;">'
     return text.replace(":brilliant:", icon_html)
 
-st.set_page_config(page_icon=icon_url)
+
 st.title("My Chess Journey")
 
 st.write('''
