@@ -6,23 +6,25 @@ st.set_page_config(page_icon=icon_url)
 # Custom CSS for responsiveness
 st.markdown("""
     <style>
-    /* Adjust the iframe size for different screen widths */
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Specific adjustments for smaller screens */
     @media (max-width: 600px) {
-        iframe {
-            width: 100% !important;
-            height: 400px !important;
-        }
-    }
-    @media (min-width: 601px) and (max-width: 1200px) {
-        iframe {
-            width: 80% !important;
-            height: 500px !important;
-        }
-    }
-    @media (min-width: 1201px) {
-        iframe {
-            width: 800px !important;
-            height: 600px !important;
+        .iframe-container {
+            padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
         }
     }
     </style>
